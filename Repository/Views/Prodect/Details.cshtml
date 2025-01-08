@@ -1,0 +1,36 @@
+﻿ @model Repository.Models.Prodect1
+
+@{
+    ViewData["Title"] = "Details Product";
+}
+<h1>Details</h1>
+
+
+<form method="post" action="Details">
+    <div class="card">
+        <div class="card-header bg-info">
+            <h2 class="text-center">@ViewData["Title"]</h2>
+        </div>
+        <div class="card-body">
+            <input type="hedden" asp-for="Id" />
+            <div class="form-floating mb-2">
+                <input asp-for="ProdectName" class="form-control" readonly />
+                <label asp-for="ProdectName"></label>
+            </div>
+            <div class="form-floating mb-2">
+                <input asp-for="Price" class="form-control" readonly />
+                <label asp-for="Price"></label>
+            </div>
+            <div class="form-floating mb-2">
+                <input asp-for="Qty" class="form-control" readonly />
+                <label asp-for="Qty"></label>
+            </div>
+            <div>
+                <div class="col-lg-1 d-grid">
+                    <button type="submit" class="btn btn-danger">Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a asp-action="Index">Back to List</a>
+ </form>

@@ -1,0 +1,55 @@
+﻿@model Repository.Models.Prodect1
+
+@{
+    ViewData["Title"] = Model != null && Model.Id == 0 ? "Create Product" : "Edit Product";
+}
+<h1>Edit</h1>
+
+<form method="post" action="CreateOrEdit">
+    <div class="card-header bg-info">
+        <h2 class="text-center">@ViewData["Title"]</h2>
+        <div class="card-header align-content-center fw-bold">
+            @ViewData["Title"]
+        </div>
+        <div class="card-body">
+              <input type="hidden" asp-for="Id" />  
+             <div class="form-floating mb-2">
+                <input asp-for="ProdectName" class="form-control" />
+                <label asp-for="ProdectName"></label>
+                <span asp-validation-for="ProdectName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-2">
+                <input asp-for="Price" class="form-control" />
+                <label asp-for="Price"></label>
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-2">
+                <input asp-for="Qty" class="form-control" />
+                <label asp-for="Qty"></label>
+                <span asp-validation-for="Qty" class="text-danger"></span>
+            </div>
+            <div>
+                @if (Model != null && Model.Id == 0)
+                {
+                    <div class="col-lg-1 d-grid">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-lg-1 d-grid">
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+        <a asp-action="Index">Back to List</a>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+

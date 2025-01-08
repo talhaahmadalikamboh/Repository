@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Repository.Models.Prodect1>
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<h3>@ViewData["Title"]</h3>
+
+  @* <p>
+    @using (Html.BeginForm("Index", "Prodect", FormMethod.Get))
+    {
+        <b>Search By: </b> @Html.RadioButton("searchBy", "ProdectNmae", true) <text>ProdectNmae</text> <br />
+        @Html.TextBox("search") <input type="submit">
+    }
+</p>  *@
+ 
+ 
+ <hr/>
+<form>
+    <button asp-action="CreateOrEdit" asp-controller="Prodect" class="btn btn-primary mb-3">Add New Product</button>
+    <div class="row">
+        <div>
+            <h4>All Records</h4>
+            <div id="records">
+            </div>
+        </div>
+    </div>
+
+<table class="table  table-dark table-bordered table-hover table-striped">
+    <thead>
+        <tr class="table-active">
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.ProdectName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Qty)
+            </th>
+             <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach(var prodect1 in Model)
+            {
+                <tr>
+                    <td>@prodect1.Id</td>
+                        <td>@prodect1.ProdectName</td>
+                    <td>@prodect1.Price</td>
+                    <td>@prodect1.Qty</td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                                <a asp-controller="Prodect" asp-action="CreateOrEdit" asp-route-id="@prodect1.Id"
+                              class="btn btn-warning">Edit</a>
+                                 <a asp-controller="Prodect" asp-action="Details" asp-route-id="@prodect1.Id"
+                                   class="btn btn-info">Details</a> 
+                                <a asp-controller="Prodect" asp-action="Delete" asp-route-id="@prodect1.Id"
+                              class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="5">
+                    <div>
+                         Prodects Not avaialble Hamza!
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+    <a asp-action="Index">Back to List</a>
+</form>
