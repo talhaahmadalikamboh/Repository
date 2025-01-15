@@ -10,7 +10,7 @@ builder.Services.AddControllersWithViews();
 
 
 builder.Services.AddDbContext<MyAppDBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddScoped<IProdectRepository, ProdectRepository>();
+builder.Services.AddSingleton<IProdectRepository, ProdectRepository>();
 
 var app = builder.Build();
 
