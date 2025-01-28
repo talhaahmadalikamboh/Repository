@@ -8,7 +8,7 @@
 <h3>Are you sure "Hamza" you want to delete this item ?</h3>
 
 <form method="post" action="Delete">
-    @* <div class="card">
+     <div class="card">
         <div class="card-header bg-info">
             <h2 class="text-center">@ViewData["Title"]</h2>
         </div>
@@ -25,13 +25,13 @@
             <div class="form-floating mb-2">
                 <input asp-for="Qty" class="form-control" readonly />
                 <label asp-for="Qty"></label>
-            </div>   *@
+            </div>   
             <div>
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-danger">OK</button>
                 </div>
             </div>
-     @*    </div>
-    </div> *@
+         </div>
+    </div> 
     <a asp-action="Index">Back to List</a>
 </form>
